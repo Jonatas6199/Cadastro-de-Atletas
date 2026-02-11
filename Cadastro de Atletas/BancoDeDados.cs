@@ -10,6 +10,7 @@ namespace Cadastro_de_Atletas
     public static class BancoDeDados
     {
         const string connectionString = "Server=localhost;Database=uc12;Uid=root;";//Caminho + Autenticação do nosso banco de dados
+
         public static bool InserirAtleta(Atleta atleta)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString)) //Criando uma instância de conexão
@@ -67,8 +68,60 @@ namespace Cadastro_de_Atletas
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao conectar no banco de dados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    transaction.Rollback();
+                    if(transaction != null)
+                        transaction.Rollback();
                     return false;
+                }
+            }
+        }
+
+        public static List<Atleta> BuscaAtletas()
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString)) //Criando uma instância de conexão
+            {
+                try
+                {
+                    List<Atleta> atletas = new List<Atleta>();
+                    connection.Open(); //Nesse momento eu estou batendo na porta do meu banco e abrindo uma conexão
+
+                    // 1. INSERT MedicalInfo
+                    string sqlMedical = @"select m.*, a.* from atleta a inner join MedicalInfo m on m.Id = a.MedicalInfoId;";
+
+                    using (MySqlCommand cmdMedical = new MySqlCommand(sqlMedical, connection))
+                    {
+
+                       MySqlDataReader resultado = cmdMedical.ExecuteReader();
+
+                        while (resultado.Read()) 
+                        {
+                            Atleta atleta = new Atleta();
+                            atleta.InformacoesMedicas.Id = Convert.ToInt32(resultado[0]);
+                            atleta.InformacoesMedicas.TipoSanguineo = resultado[1].ToString();
+                            atleta.InformacoesMedicas.Alergia = resultado[2].ToString();
+                            atleta.InformacoesMedicas.Altura = Convert.ToDouble(resultado[3]);
+                            atleta.InformacoesMedicas.Peso = Convert.ToDouble(resultado[4]);
+                            atleta.InformacoesMedicas.IMC = Convert.ToDouble(resultado[5]);
+                            atleta.Id = Convert.ToInt32(resultado[6]);
+                            atleta.Nome = resultado[7].ToString();
+                            atleta.Idade = Convert.ToInt32(resultado[8]);
+                            atleta.DataNascimento = Convert.ToDateTime(resultado[9]);
+                            atleta.Genero = resultado[10].ToString();
+                            atleta.Nacionalidade = resultado[11].ToString();
+                            atleta.Modalidade = resultado[12].ToString();
+
+                            atletas.Add(atleta);
+                        }
+
+                    }
+
+                    return atletas;
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar no banco de dados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   
+                    return null;
                 }
             }
         }

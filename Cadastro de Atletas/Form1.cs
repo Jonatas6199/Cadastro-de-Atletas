@@ -19,6 +19,8 @@ namespace Cadastro_de_Atletas
             cbxTipoSanguineo.Items.Add("AB+");
             cbxTipoSanguineo.Items.Add("O+");
             cbxTipoSanguineo.Items.Add("O-");
+
+           
         }
         private double CalculaImc(Atleta atleta)
         {
@@ -32,6 +34,7 @@ namespace Cadastro_de_Atletas
             atleta.Modalidade = txtModalidade.Text;
             atleta.Genero = cbxGenero.SelectedItem.ToString();
             atleta.DataNascimento = dtpNascimento.Value.Date;
+            atleta.Idade = DateTime.Now.Year - atleta.DataNascimento.Year;
             atleta.InformacoesMedicas.Altura = Convert.ToDouble(txtAltura.Text);
             atleta.InformacoesMedicas.Peso = Convert.ToDouble(txtPeso.Text);
             atleta.InformacoesMedicas.TipoSanguineo = cbxTipoSanguineo.SelectedItem.ToString();
@@ -73,10 +76,10 @@ namespace Cadastro_de_Atletas
 
         }
 
-        private int GeraIdentificador()
+        private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Random geraIdentificador = new Random();
-            return geraIdentificador.Next(1, 100000);
+           dgvAtletas.DataSource = BancoDeDados.BuscaAtletas();
+           dgvAtletas.Update();
         }
     }
 }

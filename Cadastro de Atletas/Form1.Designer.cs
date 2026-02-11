@@ -51,8 +51,17 @@
             panel2 = new Panel();
             label11 = new Label();
             btnCadastrar = new Button();
+            tabControl1 = new TabControl();
+            tabCadastro = new TabPage();
+            tabResultado = new TabPage();
+            dgvAtletas = new DataGridView();
+            btnAtualizar = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabCadastro.SuspendLayout();
+            tabResultado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAtletas).BeginInit();
             SuspendLayout();
             // 
             // txtNome
@@ -215,7 +224,7 @@
             panel1.Controls.Add(label6);
             panel1.Controls.Add(txtPeso);
             panel1.Controls.Add(label7);
-            panel1.Location = new Point(30, 327);
+            panel1.Location = new Point(29, 315);
             panel1.Name = "panel1";
             panel1.Size = new Size(554, 281);
             panel1.TabIndex = 19;
@@ -224,7 +233,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 15F);
-            label10.Location = new Point(30, 296);
+            label10.Location = new Point(29, 284);
             label10.Name = "label10";
             label10.Size = new Size(196, 28);
             label10.TabIndex = 20;
@@ -243,7 +252,7 @@
             panel2.Controls.Add(cbxGenero);
             panel2.Controls.Add(txtModalidade);
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(30, 46);
+            panel2.Location = new Point(29, 34);
             panel2.Name = "panel2";
             panel2.Size = new Size(554, 223);
             panel2.TabIndex = 21;
@@ -252,7 +261,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 15F);
-            label11.Location = new Point(30, 15);
+            label11.Location = new Point(29, 3);
             label11.Name = "label11";
             label11.Size = new Size(144, 28);
             label11.TabIndex = 22;
@@ -260,7 +269,7 @@
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(265, 658);
+            btnCadastrar.Location = new Point(264, 646);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(75, 23);
             btnCadastrar.TabIndex = 23;
@@ -268,24 +277,83 @@
             btnCadastrar.UseVisualStyleBackColor = true;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabCadastro);
+            tabControl1.Controls.Add(tabResultado);
+            tabControl1.Location = new Point(2, 1);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(613, 714);
+            tabControl1.TabIndex = 24;
+            // 
+            // tabCadastro
+            // 
+            tabCadastro.Controls.Add(label11);
+            tabCadastro.Controls.Add(btnCadastrar);
+            tabCadastro.Controls.Add(panel1);
+            tabCadastro.Controls.Add(label10);
+            tabCadastro.Controls.Add(panel2);
+            tabCadastro.Location = new Point(4, 24);
+            tabCadastro.Name = "tabCadastro";
+            tabCadastro.Padding = new Padding(3);
+            tabCadastro.Size = new Size(605, 686);
+            tabCadastro.TabIndex = 0;
+            tabCadastro.Text = "Cadastro";
+            tabCadastro.UseVisualStyleBackColor = true;
+            // 
+            // tabResultado
+            // 
+            tabResultado.Controls.Add(btnAtualizar);
+            tabResultado.Controls.Add(dgvAtletas);
+            tabResultado.Location = new Point(4, 24);
+            tabResultado.Name = "tabResultado";
+            tabResultado.Padding = new Padding(3);
+            tabResultado.Size = new Size(605, 686);
+            tabResultado.TabIndex = 1;
+            tabResultado.Text = "Resultado";
+            tabResultado.UseVisualStyleBackColor = true;
+            // 
+            // dgvAtletas
+            // 
+            dgvAtletas.AllowUserToAddRows = false;
+            dgvAtletas.AllowUserToDeleteRows = false;
+            dgvAtletas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAtletas.Location = new Point(6, 6);
+            dgvAtletas.Name = "dgvAtletas";
+            dgvAtletas.ReadOnly = true;
+            dgvAtletas.Size = new Size(593, 571);
+            dgvAtletas.TabIndex = 0;
+            // 
+            // btnAtualizar
+            // 
+            btnAtualizar.Font = new Font("Segoe UI", 15F);
+            btnAtualizar.Location = new Point(233, 606);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(102, 39);
+            btnAtualizar.TabIndex = 1;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(623, 718);
-            Controls.Add(btnCadastrar);
-            Controls.Add(label11);
-            Controls.Add(panel2);
-            Controls.Add(label10);
-            Controls.Add(panel1);
+            ClientSize = new Size(632, 718);
+            Controls.Add(tabControl1);
             Name = "Form1";
             Text = "Cadastrar Atleta";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabCadastro.ResumeLayout(false);
+            tabCadastro.PerformLayout();
+            tabResultado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvAtletas).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -313,5 +381,10 @@
         private Panel panel2;
         private Label label11;
         private Button btnCadastrar;
+        private TabControl tabControl1;
+        private TabPage tabCadastro;
+        private TabPage tabResultado;
+        private DataGridView dgvAtletas;
+        private Button btnAtualizar;
     }
 }
