@@ -82,3 +82,13 @@ Nuget é o gerenciador de pacotes do Visual Studio para os projetos em C#
 para acessar a loja de plugins, o caminho é Ferramentas-> Gerenciar de Pacotes do Nuget -> Gerenciar Pacotes do Nuget para a solução.
 
 Dentro disso, você deve procurar o MySqlData e instalar
+
+## Exemplo de Formulário
+
+Aba 1
+<img width="630" height="747" alt="template" src="https://github.com/user-attachments/assets/22453bb3-bede-4c26-bc12-962ef6026db3" />
+
+Aba 2
+<img width="630" height="748" alt="template1" src="https://github.com/user-attachments/assets/9c27827d-11ee-4de4-8efb-f7e434b25961" />
+
+
