@@ -83,6 +83,17 @@ para acessar a loja de plugins, o caminho é Ferramentas-> Gerenciar de Pacotes 
 
 Dentro disso, você deve procurar o MySqlData e instalar
 
+#### 1
+<img width="734" height="585" alt="nuget" src="https://github.com/user-attachments/assets/765eb822-e1c1-4051-ba8b-1d14700d23a3" />
+
+#### 2
+<img width="1005" height="211" alt="nuget1" src="https://github.com/user-attachments/assets/20ada159-a497-4c9e-8673-337fecbee57e" />
+
+#### 3
+<img width="529" height="355" alt="nuget2" src="https://github.com/user-attachments/assets/7181ef2a-3f63-40e2-a079-90072be9a245" />
+
+
+
 ## Exemplo de Formulário
 
 #### Aba 1
